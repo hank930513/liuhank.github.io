@@ -1,0 +1,19 @@
+body {
+    font-family: Arial;
+    background-color: #211a908a;
+}
+
+.content {
+    background-color: #191919;
+    width: 450px;
+    padding: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(246, 242, 242);
+}
+
+.content h1 {
+    text-transform: uppercase;
+}

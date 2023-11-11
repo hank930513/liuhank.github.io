@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>加法计算器</title>
+</head>
+<body>
+    <h1>加法计算器</h1>
+    <form id="additionForm">
+        <label for="num1">数字1：</label>
+        <input type="number" id="num1" name="num1" required>
+        <br>
+        <label for="num2">数字2：</label>
+        <input type="number" id="num2" name="num2" required>
+        <br>
+        <input type="button" value="计算" onclick="calculateAddition()">
+    </form>
+    <p>结果：<span id="result"></span></p>
+
+    <script>
+        function calculateAddition() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            var result = num1 / num2;
+            document.getElementById("result").textContent = result;
+        }
+    </script>
+</body>
+</html>
+
+
+
