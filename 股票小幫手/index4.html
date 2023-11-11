@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>股票資訊展示</title>
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table, th, td {
+    border: 1px solid black;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+</head>
+<body>
+
+<h2>股票資訊</h2>
+<table id="stockTable">
+  <tr>
+    <th>股票代號</th>
+    <th>公司簡稱</th>
+    <th>成交價</th>
+    <th>成交量</th>
+    <th>累積成交量</th>
+    <th>開盤價</th>
+    <th>最高價</th>
+    <th>最低價</th>
+    <th>昨收價</th>
+    <th>漲跌百分比</th>
+    <th>資料更新時間</th>
+  </tr>
+</table>
+
+<script>
+function fetchStockData() {
+    fetch('http://localhost:5000/get_stock_data')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // 打印返回的数据，确保它们是正确的
+            const table = document.getElementById('stockTable');
+            data.forEach(stock => {
+                const row = table.insertRow(-1); // 在表格末尾插入一行
+                Object.values(stock).forEach(text => {
+                    const cell = row.insertCell(-1);
+                    cell.textContent = text;
+                });
+            });
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+</script>
+
+</body>
+</html>
